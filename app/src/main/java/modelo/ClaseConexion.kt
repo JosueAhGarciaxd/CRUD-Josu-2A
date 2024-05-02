@@ -9,7 +9,7 @@ class ClaseConexion {
     fun cadenaConexion(): Connection? {
 
         try {
-            val url = "jdbs:oracle:thin:@10.10.0.54:1521:xe"
+            val url = "jdbc:oracle:thin:@10.10.0.54:1521:xe"
             val usuario = "system"
             val contrasena= "desarrollo"
 
@@ -18,7 +18,7 @@ class ClaseConexion {
             return connection
         }
         catch (e: Exception){
-            println("Este es el error chabacan: $e")
+            println("Este es el error: $e")
             return null
         }
     }
