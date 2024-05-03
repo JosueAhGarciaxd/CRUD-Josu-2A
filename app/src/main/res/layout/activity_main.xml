@@ -16,10 +16,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.163" />
+        app:layout_constraintVertical_bias="0.094" />
 
     <EditText
         android:id="@+id/txtCantidad"
@@ -30,10 +30,10 @@
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtPrecio"
-        app:layout_constraintVertical_bias="0.363" />
+        app:layout_constraintVertical_bias="0.783" />
 
     <EditText
         android:id="@+id/txtPrecio"
@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323" />
+        app:layout_constraintVertical_bias="0.206" />
 
     <Button
         android:id="@+id/btnAgregar"
@@ -58,5 +58,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.79" />
+        app:layout_constraintVertical_bias="0.597" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcvProductos"
+        android:layout_width="404dp"
+        android:layout_height="261dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnAgregar"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
