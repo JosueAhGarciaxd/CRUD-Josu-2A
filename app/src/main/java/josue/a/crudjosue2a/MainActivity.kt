@@ -35,26 +35,13 @@ class MainActivity : AppCompatActivity() {
         val txtCantidad = findViewById<EditText>(R.id.txtCantidad)
         val btnAgregar = findViewById<Button>(R.id.btnAgregar)
 
-        //2- Programar el boton
-        btnAgregar.setOnClickListener {
-            GlobalScope.launch(Dispatchers.IO){
-
-                //Guardad datos
-                //1-Crea un objeto de la clase Conexion
-                val ClaseConexion = ClaseConexion().cadenaConexion()
-
-                //2- Creo una variable que contenga un PrepareStatement
-                val addProducto = ClaseConexion?.prepareStatement("insert into tbProductos1(nombreProducto, precio, cantidad) values(?,?,?)")!!
-                addProducto.setString(1, txtNombre.text.toString())
-                addProducto.setInt(2, txtPrecio.text.toString().toInt())
-                addProducto.setInt(3, txtCantidad.text.toString().toInt())
-                addProducto.executeUpdate()
-            }
+        fun limpiar(){
+            txtNombre.setText("")
+            txtPrecio.setText("")
+            txtCantidad.setText("")
         }
 
-        ////SCREEN////
-        /////////////////////////////////////MOSTRAR////////////////////////////////////////////////
-
+        /////////////////////////////////////TODO: MOSTRAR DATOS ///////////////////////////////////
         val rcvProducto= findViewById<RecyclerView>(R.id.rcvProductos)
 
         //Asignar un layout al RecyclerView
@@ -87,5 +74,33 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        /////////////////////////////todo: GUARDAD PRODUCTOS//////////////////////////////////////////
+
+        //2- Programar el boton
+        btnAgregar.setOnClickListener {
+            GlobalScope.launch(Dispatchers.IO){
+
+                //Guardad datos
+                //1-Crea un objeto de la clase Conexion
+                val ClaseConexion = ClaseConexion().cadenaConexion()
+
+                //2- Creo una variable que contenga un PrepareStatement
+                val addProducto = ClaseConexion?.prepareStatement("insert into tbproductos1(nombreProducto, precio, cantidad) values(?,?,?)")!!
+                addProducto.setString(1, txtNombre.text.toString())
+                addProducto.setInt(2, txtPrecio.text.toString().toInt())
+                addProducto.setInt(3, txtCantidad.text.toString().toInt())
+                addProducto.executeUpdate()
+
+                val nuevosProductos = obtenerDatos()
+                withContext(Dispatchers.Main){
+                    (rcvProducto.adapter as? Adaptador)?.actuizarLista(nuevosProductos)
+                }
+
+            }
+            ///limpiar()
+
+        }
+
+        ////SCREEN////
     }
 }
