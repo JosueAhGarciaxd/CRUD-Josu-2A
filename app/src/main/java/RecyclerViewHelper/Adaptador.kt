@@ -47,6 +47,15 @@ class Adaptador(private var Datos: List<dataClassProductos>) : RecyclerView.Adap
 
     }
 
+    fun actualizarProducto(nombreProducto: String, uuid: String){
+
+        //1- Creo una corrutina
+        GlobalScope.launch(Dispatchers.IO){
+            
+        }
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val vista =
             LayoutInflater.from(parent.context).inflate(R.layout.item_card, parent, false)
